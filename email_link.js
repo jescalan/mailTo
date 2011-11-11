@@ -2,6 +2,7 @@
 $.fn.extend({
   encode_email: function(b64) {
     var attributes, clip, el, elm, flash_detect, has_flash, text_width, txt;
+    b64 = b64.replace(/\=/g, "");
     txt = window.atob(b64);
     if (!this.is('input')) {
       attributes = {};

@@ -1,7 +1,8 @@
 $.fn.extend
   encode_email: (b64) ->
     
-    # decode base64
+    # sanitize and decode base64
+    b64 = b64.replace(/\=/g, "")
     txt = window.atob(b64)
     
     # if it wasn't called on an input, turn it into one, keep all the attrs, and call self
