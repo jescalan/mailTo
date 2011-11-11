@@ -16,10 +16,10 @@ Usage
 
 1. mailTo is dependent on **jquery** and **zeroclipboard**, which means both of the above must be required *before* mailTo in your document. It also will look a whole lot better if you include my little bit of css. Here's a good way to do this (in html5, of course)
 
-  <link rel='stylesheet' src='/path/to/mailTo.css'>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-  <script src="/path/to/ZeroClipboard.js"></script>
-  <script src='/path/to/mailTo.js'></script>
+    <link rel='stylesheet' src='/path/to/mailTo.css'>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <script src="/path/to/ZeroClipboard.js"></script>
+    <script src='/path/to/mailTo.js'></script>
 
 In addition, you *must* include ZeroClipboard.swf in the same directory that your page is being served from in order for the auto-copy functionality to work. If this is a disaster, I could add an option to add a custom path for this file, but honestly I didn't think it was worth it. If enough people think so, it's an easy change.
 
@@ -27,7 +27,7 @@ In addition, you *must* include ZeroClipboard.swf in the same directory that you
 
 3. Calling mailTo is really straightforward once you've gone through the above. You can call it on any element, although it does prefer input elements (and will convert anything else into one when it runs). Just call mailTo on the element you want you email to appear in and feed it a base64 value.
   
-  $('.email_field').mailTo('bXlAZW1haWwuY29t');
+    $('.email_field').mailTo('bXlAZW1haWwuY29t');
   
 4. Shazam! Refresh your page, and you should see your email in there, in plain text and easily copy-able, yet completely invisible to bots. Aw yeah.
 
