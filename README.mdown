@@ -1,0 +1,37 @@
+MailTo
+======
+
+*note: this is in super alpha and not finished at all*
+
+mailTo is a little plugin that solves three really annoying problems:
+
+ - If you put up a plaintext email address on the web, spambots will grab it, but if you try to pull out some weird 'people only' encoding, its super inconvenient.
+ - Using mailto: in your links generally just pisses people off and opens an un-configured version of outlook or apple mail which they they need to close.
+ - Contact forms are awkward and impersonal.
+ 
+What people want is to quickly grab the email and put it wherever they decide they want to email you from, and that's exactly what this plugin does. If your user has flash installed, when your user clicks on the email, this plugin will hilight it, copy it to your clipboard, and let you know what it did with the help of the fantastic **zeroclipboard** plugin. If the user doesn't have flash, it will simply hilight the address, ready for a manual copy.
+
+Usage
+=====
+
+1. mailTo is dependent on **jquery** and **zeroclipboard**, which means both of the above must be required *before* mailTo in your document. It also will look a whole lot better if you include my little bit of css. Here's a good way to do this (in html5, of course)
+
+  <link rel='stylesheet' src='/path/to/mailTo.css'>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+  <script src="/path/to/ZeroClipboard.js"></script>
+  <script src='/path/to/mailTo.js'></script>
+
+In addition, you *must* include ZeroClipboard.swf in the same directory that your page is being served from in order for the auto-copy functionality to work. If this is a disaster, I could add an option to add a custom path for this file, but honestly I didn't think it was worth it. If enough people think so, it's an easy change.
+
+2. As we all know, it is not a good idea to embed your email directly into the page in plaintext or it can be picked up by spambots. Easy enough, we will just convert it to base64 beforehand. You can use **this fantastic site** to make a quick conversion.
+
+3. Calling mailTo is really straightforward once you've gone through the above. You can call it on any element, although it does prefer input elements (and will convert anything else into one when it runs). Just call mailTo on the element you want you email to appear in and feed it a base64 value.
+  
+  $('.email_field').mailTo('bXlAZW1haWwuY29t');
+  
+4. Shazam! Refresh your page, and you should see your email in there, in plain text and easily copy-able, yet completely invisible to bots. Aw yeah.
+
+Bugs
+====
+
+Found a bug? As long as it doesn't have to do with IE6, which I dont' support or care about, just throw up an issue on github and I'll get to it as quick as I can. Make sure you include your OS, browser, and versions of both in the bug report.
