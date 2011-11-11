@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Text to Base64</title>
+  <style> input[type=text] { width: 300px;} </style>
+</head>
+<body>
+  <p>Put your email in here and get back some gibberish</p>
+  <input type='text' />
+  <input type='submit' />
+  
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+  <script>
+    $('input[type=submit]').click(function(){
+      var field = $('input[type=text]')
+      var decoded = window.btoa(field.val())
+      field.val(decoded).focus().select()
+    });
+  </script>
+</body>
+</html>

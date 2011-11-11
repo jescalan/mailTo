@@ -1,7 +1,7 @@
 
 $.fn.extend({
   encode_email: function(b64) {
-    var attributes, clip, el, elm, flash_detect, has_flash, txt;
+    var attributes, clip, el, elm, flash_detect, has_flash, text_width, txt;
     txt = window.atob(b64);
     if (!this.is('input')) {
       attributes = {};
@@ -17,6 +17,9 @@ $.fn.extend({
       return elm.encode_email(b64);
     } else {
       this.attr('id', 'zc-text');
+      this.after("<div class='widthtest'>" + txt + "</div>");
+      text_width = this.next().width() + this.next().width() / 10;
+      this.next().remove();
       this.val(txt).css({
         border: 'none',
         margin: 0,
@@ -25,7 +28,8 @@ $.fn.extend({
         'font-size': this.parent().css('font-size'),
         'font-weight': 'bold',
         outline: 0,
-        background: 'none'
+        background: 'none',
+        width: text_width
       });
       flash_detect = function() {
         var a, b;
